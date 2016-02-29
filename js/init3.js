@@ -96,8 +96,9 @@ function visualize(data){
 		WGL.initFilters();
 
 		var radius = 20.;    
+    
 WGL.getDimensions()['heatmap'].radiusFunction = function(z){
-var res = radius * Math.pow(2,z)/5000;
+var res = radius;
 //console.log(res);
 return res ;
 };
