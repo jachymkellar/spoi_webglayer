@@ -95,13 +95,20 @@ function visualize(data){
 		 */
 		WGL.initFilters();
 
-		var radius = 20.;    
+		WGL.getDimensions()['heatmap'].radiusFunction = function(z){
+             var res = (12* Math.pow(2,z)/5000)+3;
+             //console.log(res);
+             return  res ;
+             };
+   /* 
+    var radius = 20.;    
     
 WGL.getDimensions()['heatmap'].radiusFunction = function(z){
 var res = radius;
 //console.log(res);
 return res ;
 };
+*/
 		
 		/** Drawing the map fist time */
 		WGL.mcontroller.zoommove(map.getZoom(), getTopLeftTC());

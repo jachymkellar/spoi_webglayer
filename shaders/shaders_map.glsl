@@ -34,14 +34,19 @@
 			gl_PointSize = p_size;
   			
   		} else if ((fdata[0] < ( numfilters / 256.)  || numfilters == 0.) && drawselect<0.5) {  	
-  		   // If not selected then use blue color	   
-  		   //p_size = p_size-3.;
-  		   col = vec4(0., 0. , 1., 0.4);
-  		   //col = vec4(0.482, 0.408, 0.533, 0.95); 	
-  		   //p_size = 4.;
-  		  // col = vec4(0.0,0.,0.,0.75);
-  		  	gl_Position = p;    	
-			gl_PointSize =  p_size;
+  		   // test   
+  		  col = vec4(100., 100. , 100., 0.2);
+        if(zoom < 13.0){
+           p_size = 0.;
+           gl_Position = vec4(-2.,-2.,0.,0.);  
+           gl_PointSize = 0.;
+          }
+          else{
+            p_size = zoom-12.0;
+         	  gl_Position = p;    	
+		      	gl_PointSize =  p_size;
+          }
+        
   		} else {
   			gl_Position = vec4(-2.,-2.,0.,0.);    	
 			gl_PointSize = 0.;
